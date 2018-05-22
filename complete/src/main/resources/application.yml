@@ -1,14 +1,21 @@
 server:
-  port: 8080
+  port: 443
+  ssl:
+	key-store-type:PKCS12
+	key-store:classpath:keystore.p12
+	key-store-password=SamplePassword
+	key-alias:tomcat
+
+
+security:
+	require-ssl:true
 
 #TODO: figure out why I need this here and in bootstrap.yml
 spring:
   application:
     name: testLatticeApp
-
 ribbon:
   ServerListRefreshInterval: 1000
-
 endpoints:
   health:
     sensitive: false
